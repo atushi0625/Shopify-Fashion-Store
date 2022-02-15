@@ -1,0 +1,93 @@
+<section class="section-{{ section.id }} relative overflow-hidden w-full h-full">
+     <div class="swiper">
+          <div class="swiper-wrapper">
+               {% for block in section.blocks %}
+                    {% assign slide = block.settings %}
+                    {% if slide.image != blank %}
+               <div class="swiper-slide">
+                    <img src="{{ slide.image | img_url: 'master' }}" alt="{{ slide.image.alt | escape }}" width="{{ slide.image.width }}" height="{{ slide.image.width | divided_by: slide.image.aspect_ratio }}" loading="lazy">                         
+                    {% else %}
+                         {% assign placeholder = 'lifestyle-2' %}
+                         {{ placeholder | placeholder_svg_tag }}
+                    {% endif %}
+                    <div class="hero-container">
+                         <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
+                              <div class="col-span-3 text-center">
+                                   <h1 class="font-bold text-white text-base leading-4 sm:text-{{ section.settings.font_size }}xl ">{{ slide.title }}</h1>
+                                   <p class="mt-2 text-white text-sm sm:text-2xl leading-4">{{ slide.textarea }}</p>
+                                   <a href="{{ slide.button_link }}" class="inline-block text-white bg-blue-600 hover:bg-blue-700 transition rounded-lg mt-3 text-sm sm:text-base md:text-lg py-2 px-5 leading-4">{{ slide.button_label }}</a>
+                              </div>
+                         </div>
+                    </div>                    
+          </div>
+               
+          {% endfor %}
+     </div>
+     <div class="swiper-pagination"></div>
+     </div>
+
+</section>
+
+
+
+
+{% schema %}
+{
+"name": "スライドショー",
+"max_blocks": 5,
+"settings": [
+     {
+          "type": "range",
+          "id": "font_size",
+          "min": 1,
+          "max": 6,
+          "step": 1,
+          "unit": "xl",
+          "label": "フォントサイズ",
+          "default": 1
+     }
+],
+"blocks": [
+     {
+          "name": "スライド",
+          "type": "slide",
+          "settings": [
+               {
+                    "type": "image_picker",
+                    "id": "image",
+          "label": "スライダー画像"
+     },
+     {
+          "type": "text",
+          "id": "title",
+          "default": "ここにタイトルが入ります",
+          "label": "ここにタイトルが入ります"
+     },
+     {
+          "type": "textarea",
+          "id": "textarea",
+          "label": "Welcome message",
+          "default": "Welcome to my shop!"
+        },
+     {
+          "type": "text",
+          "id": "button_label",
+          "default": "ボタン",
+          "label": "ここにボタン名が入ります"
+     },
+     {
+          "type": "url",
+          "id": "button_link",
+          "label": "ボタンのリンクです"
+     }
+     
+   ]
+}
+],
+"presets": [
+{
+"name": "スライドショー"
+}
+]
+}
+{% endschema %}

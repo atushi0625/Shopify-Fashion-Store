@@ -1,0 +1,102 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "69b3d1f5-4952-4bc1-ae58-e4d772195439": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero-bg.jpg",
+            "title": "ATUSHI STORE FASHION",
+            "textarea": "Welcome to my shop!",
+            "button_label": "BUY NOW",
+            "button_link": "shopify:\/\/collections"
+          }
+        },
+        "679b93cc-a85e-4265-8cfc-a090b594b734": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/divider-bg.jpg",
+            "title": "Men's Collection",
+            "textarea": "You can buy!",
+            "button_label": "Collection",
+            "button_link": "shopify:\/\/collections\/mens-collection"
+          }
+        },
+        "3c28cf6a-50dd-4742-b975-14d3299e3878": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/hero-bg-2.jpg",
+            "title": "ここにタイトルが入ります",
+            "textarea": "ここにメッセージが入ります",
+            "button_label": "ボタン",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "69b3d1f5-4952-4bc1-ae58-e4d772195439",
+        "679b93cc-a85e-4265-8cfc-a090b594b734",
+        "3c28cf6a-50dd-4742-b975-14d3299e3878"
+      ],
+      "settings": {
+        "font_size": 5
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Tシャツコレクション",
+        "featured_collection": "t-shirt-collections",
+        "number_of_products_to_show": 4
+      }
+    },
+    "1642332109c3c052fb": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "ボトムスコレクション",
+        "featured_collection": "bottoms-collection",
+        "number_of_products_to_show": 4
+      }
+    },
+    "164233262948a885e7": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "スニーカーコレクション",
+        "featured_collection": "sneaker-collection",
+        "number_of_products_to_show": 4
+      }
+    },
+    "16423327312f9be8cf": {
+      "type": "recommendation-product",
+      "settings": {
+        "title": "オススメ商品",
+        "button_label": "購入する",
+        "recommendation_product": "watch-1"
+      }
+    },
+    "164233354977b10eea": {
+      "type": "recommendation-product",
+      "settings": {
+        "title": "オススメ商品",
+        "button_label": "ボタン",
+        "recommendation_product": "dress"
+      }
+    },
+    "1642333915e2cbcf96": {
+      "type": "contact-form",
+      "settings": {
+        "title": "お問い合わせはこちら"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured-collection",
+    "1642332109c3c052fb",
+    "164233262948a885e7",
+    "16423327312f9be8cf",
+    "164233354977b10eea",
+    "1642333915e2cbcf96"
+  ]
+}

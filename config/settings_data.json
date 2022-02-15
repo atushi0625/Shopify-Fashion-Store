@@ -1,0 +1,63 @@
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "mobile_menu_title": "メニュー",
+          "menu": "main-menu",
+          "header_logo": "shopify:\/\/shop_images\/logo_2.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "4dcfb85f-084b-419d-a11e-7b6aefc6823a": {
+            "type": "text",
+            "settings": {
+              "logo": "shopify:\/\/shop_images\/logo_2.png",
+              "title": "",
+              "description": "",
+              "footer_facebook_icon": "fa",
+              "footer_facebook_icon_link": "",
+              "footer_twitter_icon": "fa",
+              "footer_twitter_icon_link": "",
+              "footer_instagram_icon": "fa",
+              "footer_instagram_icon_link": ""
+            }
+          },
+          "0834527a-8534-48f5-b05d-de1abf414d0e": {
+            "type": "link_list",
+            "settings": {
+              "title": "インフォメーション",
+              "menu": "footer"
+            }
+          },
+          "9de6dfa7-a82c-431b-bd10-3ec0f0da0fe7": {
+            "type": "link_list",
+            "settings": {
+              "title": "フッターリンク",
+              "menu": "main-menu"
+            }
+          }
+        },
+        "block_order": [
+          "4dcfb85f-084b-419d-a11e-7b6aefc6823a",
+          "0834527a-8534-48f5-b05d-de1abf414d0e",
+          "9de6dfa7-a82c-431b-bd10-3ec0f0da0fe7"
+        ],
+        "settings": {
+          "col_num": 3,
+          "payment_enable": true
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
+  "presets": {
+    "Default": {
+    }
+  }
+}

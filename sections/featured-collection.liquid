@@ -1,0 +1,58 @@
+<div class="section-{{ section.id }} flex flex-col items-center my-8">
+    <h1 class="text-center text-3xl">{{ section.settings.title }}</h1>
+
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {% for product in section.settings.featured_collection.products limit: section.settings.number_of_products_to_show %}
+            {% render 'product-card', product_product: product %}
+            {% else %}
+            {% for item in (1..4) %}
+            {% render 'product-card-placeholder' %}
+            {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% style %}
+     .section-{{ section.id }} {
+       background: var(--background-color);
+     
+     }
+     
+{% endstyle %}
+
+
+
+
+{% schema %}
+{
+"name": "注目のコレクション",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"default": "注目のコレクション",
+"label": "タイトル"
+},
+{
+"type": "collection",
+"id": "featured_collection",
+"label": "コレクション"
+},
+{
+"type": "range",
+"id": "number_of_products_to_show",
+"min": 4,
+"max": 12,
+"default": 4,
+"label": "表示する商品の数"
+}
+],
+"presets": [
+{
+"name": "注目のコレクション"
+}
+]
+}
+{% endschema %}
