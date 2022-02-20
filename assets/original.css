@@ -18,9 +18,9 @@
 }
 @media screen and (max-width: 414px) {
      .hero-container {
-          left: 50%;
-          
+          left: 50%;       
      }
+
 }
 
 body {
@@ -32,3 +32,4 @@ h1{
      color: var(--color-text);
 
 }
+

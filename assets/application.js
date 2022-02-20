@@ -4,18 +4,18 @@ const swiper = new Swiper('.swiper', {
      // Optional parameters
      direction: 'horizontal',
      autoplay: {
-          delay: 3000,
-		disableOnInteraction: true
+          delay: 4000,
            },
 
-
+     centeredSlides: true,
      loop: true,
-     autoHeight: true,
      effect: 'slide',
 
      // If we need pagination
      pagination: {
           el: '.swiper-pagination',
+          type: 'bullets',
+          clickable: true
      },
 
      // Navigation arrows
@@ -29,4 +29,6 @@ const swiper = new Swiper('.swiper', {
           el: '.swiper-scrollbar'
      }
 })
+
+
 

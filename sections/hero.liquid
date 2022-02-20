@@ -1,14 +1,25 @@
+{%- if section.settings.slide_height == 'adapt' -%}
+     {%- assign first_block = section.blocks[0] -%}
+     {%- if first_block.settings.image.aspect_ratio == blank -%}
+       {%- assign min_aspect_ratio = 2.0 -%}
+     {%- else -%}
+       {%- assign min_aspect_ratio = first_block.settings.image.aspect_ratio -%}
+     {%- endif -%}
+     {% assign wrapper_height = 100 | divided_by: min_aspect_ratio %}
+   {%- endif -%} 
+
 <section class="section-{{ section.id }} relative overflow-hidden w-full h-full">
-     <div class="swiper">
+     <div class="swiper slideshow--{{ section.settings.slide_height }}" {% if section.settings.slide_height == 'adapt' %} data-min-aspect-ratio="{{ min_aspect_ratio }}"
+          style="height: {{ wrapper_height }}vw"{% endif %} id="sliderContainer">
           <div class="swiper-wrapper">
                {% for block in section.blocks %}
                     {% assign slide = block.settings %}
                     {% if slide.image != blank %}
-               <div class="swiper-slide">
-                    <img src="{{ slide.image | img_url: 'master' }}" alt="{{ slide.image.alt | escape }}" width="{{ slide.image.width }}" height="{{ slide.image.width | divided_by: slide.image.aspect_ratio }}" loading="lazy">                         
-                    {% else %}
-                         {% assign placeholder = 'lifestyle-2' %}
-                         {{ placeholder | placeholder_svg_tag }}
+                         <div class="swiper-slide" style="background-image: url('{{ slide.image | img_url: '2048x' }}'); background-position: {{ slide.alignment }}; background-size: cover;">
+                     {% else %}
+                              {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                              {% assign placeholder = 'lifestyle-' %}
+                              {{ placeholder | append: current | placeholder_svg_tag: 'placeholder-svg' }}       
                     {% endif %}
                     <div class="hero-container">
                          <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
@@ -23,10 +34,47 @@
                
           {% endfor %}
      </div>
-     <div class="swiper-pagination"></div>
+     <div class="slider-other-menu">
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>  
+     </div>
      </div>
 
 </section>
+
+
+{% style %}
+
+
+.slideshow--small {
+  height: 175px; 
+}
+
+.slideshow--medium {
+    height: 270px; 
+}
+
+.slideshow--large{
+    height: 375px; 
+}
+
+@media screen and (max-width: 820px) {
+     .slideshow--small{
+      height: 475px; 
+    } 
+    .slideshow--medium{
+      height: 650px; 
+    }
+    .slideshow--large {
+      height: 775px; 
+    } 
+
+     
+}
+
+
+{% endstyle %}
 
 
 
@@ -45,6 +93,30 @@
           "unit": "xl",
           "label": "フォントサイズ",
           "default": 1
+     },
+     {
+          "type": "select",
+          "id": "slide_height",
+          "label": "スライドの高さ",
+          "default": "adapt",
+          "options": [
+               {
+                    "label": "最初の画像に対応",
+                    "value": "adapt"
+               },
+               {
+                    "label": "小",
+                    "value": "small"
+               },
+               {
+                    "label": "中",
+                    "value": "medium"
+               },
+               {
+                    "label": "大",
+                    "value": "large"
+               }
+          ]
      }
 ],
 "blocks": [
@@ -79,8 +151,51 @@
           "type": "url",
           "id": "button_link",
           "label": "ボタンのリンクです"
-     }
-     
+     },
+     {
+          "type": "select",
+          "id": "alignment",
+          "label": "画像アラインメント",
+          "default": "center center",
+          "options": [
+            {
+              "label": "左上",
+              "value": "left top"
+            },
+            {
+              "label":  "中央上",
+              "value": "center top"
+            },
+            {
+              "label": "右上",
+              "value": "right top"
+            },
+            {
+              "label": "中央部左側",
+              "value": "left center"
+            },
+            {
+              "label": "中心",
+              "value": "center center"
+            },
+            {
+              "label": "中央部右側",
+              "value": "right center"
+            },
+            {
+              "label":  "左下",
+              "value": "left bottom"
+            },
+            {
+              "label": "中央下",
+              "value": "center bottom"
+            },
+            {
+              "label":  "右下",
+              "value": "right bottom"
+            }
+          ]
+       }    
    ]
 }
 ],
